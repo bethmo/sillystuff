@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <script type="text/javascript" src="converter.js"></script>
+    <script type="text/javascript">
+        function test(input, expectedOutput) {
+            var result = convertDollarStringToWords(input);
+            console.log(input + " -> " + expectedOutput + ((result == expectedOutput) ? " OK" : " FAIL: " + result));
+        }
+
+        console.clear();
+        test("2523.04", "Two thousand five hundred twenty-three and 04/100 dollars");
+        test("1", "One and 00/100 dollars");
+        test("1.01", "One and 01/100 dollars");
+        test(".01", "01/100 dollars");
+        test("0000.01", "01/100 dollars");
+        test("19", "Nineteen and 00/100 dollars");
+        test("31.31", "Thirty-one and 31/100 dollars");
+        test("1,000,000", "One million and 00/100 dollars");
+        test("1234567890.99", "One billion two hundred thirty-four million five hundred sixty-seven thousand eight hundred ninety and 99/100 dollars");
+        test("1,000,000,000,000.00", "Too rich for my blood!");
+    </script>
+</head>
+    <body>
+    </body>
+</html>
