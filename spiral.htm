@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Spiral</title>
+    <link rel="stylesheet" href="spiral.css">
+    <script type="text/javascript" src="Libraries/jquery-1.8.0.min.js"></script>
+    <script type="text/javascript" src="spiral.js"></script>
+    <script type="text/javascript" src="utility.js"></script>
+</head>
+<body>
+<label>Spiral the numbers up to (max <span class="spiralMax"></span>): <input type="text" id="SpiralTargetInput" size="20" maxlength="20"/></label>
+<input type="button" class="defaultButton" value="Spiral" onclick="displaySpiral()" />
+<div id="ErrorText">Please enter an integer between 0 and <span class="spiralMax"></span>.</div>
+&nbsp;<br/>
+&nbsp;<br/>
+<table id="SpiralTable"></table>
+</body>
+</html>

@@ -9,26 +9,12 @@ var MILLION = "million";
 var BILLION = "billion";
 
 $(document).ready(function() {
-    $("#dollarInput").focus();
-    $("input").bind("keydown", function(e) {
-        if ((e.which == 13) && (e.target.type != 'textarea')) {
-            var defaultButtons = $(".defaultButton");
-            if (defaultButtons.length == 1) {
-                if ((defaultButtons[0].type == "button") || (defaultButtons[0].type == "submit")) {
-                    defaultButtons[0].click();
-                } else {
-                    eval(defaultButtons[0].href);
-                }
-                return false;
-            } else  {
-                return true;
-            }
-        }
-    });
+    $("#DollarInput").focus();
+    makeEnterClickDefaultButton();
 });
 
 function convertToText() {
-    var rawValue = $("#dollarInput").val();
+    var rawValue = $("#DollarInput").val();
     if (!DOLLAR_REGEX.test(rawValue)) {
         $("#Result").text("I'm sorry, I can't interpret that as a dollar amount.");
         return;
