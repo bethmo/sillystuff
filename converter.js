@@ -8,6 +8,25 @@ var THOUSAND = "thousand";
 var MILLION = "million";
 var BILLION = "billion";
 
+$(document).ready(function() {
+    $("#dollarInput").focus();
+    $("input").bind("keydown", function(e) {
+        if ((e.which == 13) && (e.target.type != 'textarea')) {
+            var defaultButtons = $(".defaultButton");
+            if (defaultButtons.length == 1) {
+                if ((defaultButtons[0].type == "button") || (defaultButtons[0].type == "submit")) {
+                    defaultButtons[0].click();
+                } else {
+                    eval(defaultButtons[0].href);
+                }
+                return false;
+            } else  {
+                return true;
+            }
+        }
+    });
+});
+
 function convertToText() {
     var rawValue = $("#dollarInput").val();
     if (!DOLLAR_REGEX.test(rawValue)) {
@@ -38,14 +57,14 @@ function convertDollarStringToWords(rawValue) {
 
 function convertIntegerToWords(value) {
     var valueAndResult = { value: value, result: "" };
-    convertSegment(valueAndResult, 1000000000, BILLION);
-    convertSegment(valueAndResult, 1000000, MILLION);
-    convertSegment(valueAndResult, 1000, THOUSAND);
-    convertSegment(valueAndResult, 1, "");
+    _convertSegment(valueAndResult, 1000000000, BILLION);
+    _convertSegment(valueAndResult, 1000000, MILLION);
+    _convertSegment(valueAndResult, 1000, THOUSAND);
+    _convertSegment(valueAndResult, 1, "");
     return valueAndResult.result;
 }
 
-function convertSegment(valueAndResult, divisor, name) {
+function _convertSegment(valueAndResult, divisor, name) {
     if (valueAndResult.value >= divisor) {
         var numberOfTheseUnits = Math.floor(valueAndResult.value / divisor);
         valueAndResult.result += _convertUpToThreeDigitsToWords(numberOfTheseUnits);
