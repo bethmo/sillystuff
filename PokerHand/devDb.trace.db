@@ -1,0 +1,6 @@
+09-09 23:04:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (POKER_HAND: VERSION BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."POKER_HAND"("ID","VERSION","HAND")VALUES(?,?,?) -- (?1, ?2, ?3) [22018-164]
+09-09 23:04:01 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (POKER_HAND: VERSION BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."POKER_HAND"("ID","VERSION","HAND")VALUES(?,?,?) -- (?1, ?2, ?3) [22018-164]
